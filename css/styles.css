@@ -1,11 +1,13 @@
 body {
-  font-family: 'Times New Roman', Times, serif;
-  font-weight: 700;
-  font-size: 30px;
+  font-family: Roboto, serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(68, 2, 2, 0.781);
 }
 
+/* --------------------Button.html------------------------ */
 .link {
-  color: blue;
+  color: rgb(74, 74, 231);
 }
 
 .link:hover,
@@ -22,6 +24,7 @@ body {
   align-items: center;
 }
 
+/* ------------------------ЛЕВАЯ КНОПКА------------------ */
 .btn-left {
   display: inline-flex;
   align-items: center;
@@ -81,7 +84,7 @@ body {
   color: rgb(59, 243, 34);
 }
 
-/* ПРАВАЯ КНОПКА */
+/* ----------------ПРАВАЯ КНОПКА--------------------- */
 .btn-right {
   position: relative;
   top: 200px;
@@ -129,12 +132,104 @@ body {
   transform: translateY(-140px);
 }
 
-.btn-right:hover::before,
+/* .btn-right:hover::before,
 .btn-right:focus::before {
-}
+} */
 
 .btn-right:hover,
 .btn-right:focus {
   background-color: #f3708e;
   color: #ffffff;
+}
+
+/* -------------------Form.html, для таблицы----------------- */
+.form {
+  width: 700px;
+  outline: 1px solid teal;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+
+/* Первый способ: */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+
+  /* outline: 1px solid red; */
+}
+
+/* Второй способ: 
+.form-field {
+  outline: 1px solid red;
+  margin-bottom: 20px;
+}
+
+.form-field input {
+  width: 100%;
+} */
+
+.form-field label {
+  margin-bottom: 5px;
+}
+
+.form-field input {
+  margin: 0;
+  padding: 6px 10px;
+  border: 1px solid #2a2a2a;
+  border-radius: 4px;
+}
+
+/* к placeholder можно применить только свойство текста */
+.form-field input::placeholder {
+  color: rgb(229, 190, 196);
+}
+
+.group {
+  margin-bottom: 20px;
+}
+
+.group-title {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.topic-options,
+.experience-options {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* плохо стилизируются, в разных браузерах будет по-разному отображаться */
+/* поэтому их вовсе скрывают и рисуют руками кастомные */
+/* .topic-options input[type='checkbox'] {
+  width: 48px;
+  height: 40px;
+} */
+
+.topic-options li {
+  display: flex;
+  align-items: center;
+}
+
+.topic-options label {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+/* чтобы перекрыть иконку календаря стандартного, надо делать span и absolute */
+/* Но что-то мы еще можем сами изменить, перебить от браузера: */
+.form .date {
+  /* border-color: red; */
+  border-width: 2px;
+  border-radius: 4px;
+  padding: 20px 40px;
+  /* font-size: 30px; */
+  /* color: green; */
+}
+
+.comment {
+  padding: 8px;
 }

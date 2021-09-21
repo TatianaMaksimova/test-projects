@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Таблица</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700;900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <a href="./index.html" class="link">Назад на главную</a>
+
+    <form class="form js-speaker-form" autocomplete="off">
+      <!--Можно и так, тогда id не нужен: <label>Имя<input type="text" name="user-name" /></label> label и input строчные элементы-->
+      <!-- Вводим имя, телефон и почту -->
+      <!-- Один autofocus на страницу-->
+      <!-- Label и input можно обернуть в <p>, <ul>, <li>, ... так и в <div>, для позиционирования-->
+      <div class="form-field">
+        <label for="name">Имя</label>
+        <input type="text" name="user-name" id="name" placeholder="Иван Иваныч" autofocus />
+      </div>
+
+      <div class="form-field">
+        <label for="tel">Tелефон</label>
+        <input type="text" name="tel" id="tel" placeholder="+7-900-000-00-00" />
+      </div>
+
+      <div class="form-field">
+        <label for="mail">Почта</label>
+        <input type="email" name="mail" id="mail" autocomplete="on" placeholder="111@mail.ru" />
+      </div>
+
+      <!-- Выбираем темы на которые хотим делать доклад. Хорошо, когда у группы 1 общее имя -->
+      <!-- <fieldset> невозможно пофиксить черз флексокс, используем див с атрибутом role (это костыль) -->
+      <div role="group" class="group">
+        <h1 class="group-title">Тема доклада</h1>
+        <!-- <b>Выберите тему доклада</b> Если как призыв к действию, не как заголовок-->
+        <ul class="topic-options">
+          <li>
+            <input type="checkbox" name="topic" value="html" id="html" checked />
+            <label for="html">HTML</label>
+          </li>
+
+          <li>
+            <input type="checkbox" name="topic" value="css" id="css" /> <label for="css">CSS</label>
+          </li>
+
+          <li>
+            <input type="checkbox" name="topic" value="js" id="js" />
+            <label for="js">JavaScript</label>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Выбираем свой уровень разработчика -->
+      <!-- Одно из многих - радиокнопки. Обязательно одинаковое имя для группы -->
+      <div role="group" class="group">
+        <h1 class="group-title">Уровень вашей экспертности</h1>
+        <ul class="experience-options">
+          <li>
+            <input type="radio" name="experience" value="junior" id="junior" checked />
+            <label for="junior">Junior</label>
+          </li>
+
+          <li>
+            <input type="radio" name="experience" value="middle" id="middle" />
+            <label for="middle">Middle</label>
+          </li>
+
+          <li>
+            <input type="radio" name="experience" value="senior" id="senior" />
+            <label for="senior">Senior</label>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Выбираем время доклада https://caniuse.com/#search=datetime-local-->
+      <div class="form-field">
+        <label for="date">Дата доклада</label>
+        <input type="datetime-local" name="date" id="date" min="2020-04-12T12:00" class="date" />
+      </div>
+
+      <!-- Загружаем презентацию -->
+      <div class="form-field">
+        <label for="pdf">Загрузите копию доклада в pdf</label>
+        <input type="file" name="pdf" id="pdf" />
+      </div>
+
+      <!-- Оставляем комментарий -->
+      <div class="form-field">
+        <label for="comment">Оставьте комментарий</label>
+        <textarea
+          class="comment"
+          name="comment"
+          id="comment"
+          rows="8"
+          placeholder="Здесь вы пишете свой комментарий"
+        ></textarea>
+      </div>
+
+      <!-- Подтверждаем политику конфиденциальности -->
+      <div class="form-field">
+        <input type="checkbox" name="policy" id="policy" />
+        <label for="policy">Соглашаюсь на все, за еду</label>
+      </div>
+
+      <!-- Можно и так, но не используем то, что выше (там можно доп разметку сделать): <input type="button" value="Оставить заявку" /> -->
+      <button type="submit">Оставить заявку</button>
+    </form>
+
+    <!-- Выбираем на кого ориентирован доклад -->
+
+    <script>
+      (() => {
+        document.querySelector('.js-speaker-form').addEventListener('submit', e => {
+          e.preventDefault();
+
+          new FormData(e.currentTarget).forEach((value, name) => console.log(`${name}: ${value}`));
+
+          e.currentTarget.reset();
+        });
+      })();
+    </script>
+  </body>
+</html>
