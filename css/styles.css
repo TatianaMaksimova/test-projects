@@ -24,13 +24,13 @@ body {
   align-items: center;
 }
 
-/* ------------------------ЛЕВАЯ КНОПКА------------------ */
+/* -----------------------------ЛЕВАЯ КНОПКА-------------------------- */
 .btn-left {
   display: inline-flex;
   align-items: center;
   position: relative;
-  top: 200px;
-  left: 50px;
+  top: 0;
+  left: 0;
   border: none;
   margin: 0;
   margin-right: 20px;
@@ -84,11 +84,11 @@ body {
   color: rgb(59, 243, 34);
 }
 
-/* ----------------ПРАВАЯ КНОПКА--------------------- */
+/* -----------------------------ПРАВАЯ КНОПКА--------------------------- */
 .btn-right {
   position: relative;
-  top: 200px;
-  left: 50px;
+  top: 0;
+  left: 0;
   display: inline-flex;
   align-items: center;
   border: none;
@@ -142,7 +142,67 @@ body {
   color: #ffffff;
 }
 
-/* -------------------Form.html, для таблицы----------------- */
+/* ----------------------------Простая таблица-------------------------- */
+
+/* Old school. Гарантированно работает во всех браузерах: */
+.form {
+  padding: 20px;
+  margin: 20px;
+  width: 600px;
+}
+
+.form-field {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form-label {
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  transform: translateY(-50%);
+  /* background-color: rgb(158, 10, 101); */
+  color: #000;
+
+  transition: transform 250ms linear;
+}
+
+.form-input {
+  width: 100%;
+  margin: 0;
+  padding: 10px 20px;
+  font: inherit;
+  border-radius: 3px;
+  border: 1px solid blueviolet;
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+  transform: translateY(-50px);
+  color: blue;
+}
+
+/* .form-input:placeholder-shown {
+  background-color: red;
+} */
+
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: tomato;
+}
+
+.form-input:focus ~ .icon {
+  background-color: aqua;
+}
+
+/* ---------------------------Form.html, для таблицы---------------------- */
 .form {
   width: 700px;
   outline: 1px solid teal;
