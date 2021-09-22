@@ -24,20 +24,67 @@
     </div>
 
     <!-- Простая таблица -->
-    <form class="form" autocomplete="off">
-      <div class="form-field">
-        <input type="text" class="form-input" name="name" id="name" placeholder=" " />
-        <label for="name" class="form-label">Имя</label>
+    <form class="forma" autocomplete="off">
+      <div class="forma-field">
+        <input type="text" class="forma-input" name="name" id="name" placeholder=" " />
+        <label for="name" class="forma-label">Имя</label>
         <span class="icon"></span>
       </div>
 
-      <div class="form-field">
-        <input type="email" class="form-input" name="mail" id="mail" placeholder=" " />
-        <label for="mail" class="form-label">Почта</label>
+      <!-- Чтобы без ID, не придумывать уникальные им имена, проще вложить в label -->
+      <!-- <label class="form-field">
+        <input type="text" class="form-input" name="name" placeholder=" " />
+      <span class="form-label">Имя</span>
+      <span class="icon"></span>
+      </label> -->
+
+      <div class="forma-field">
+        <input type="email" class="forma-input" name="mail" id="mail" placeholder=" " />
+        <label for="mail" class="forma-label">Почта</label>
         <span class="icon"></span>
       </div>
 
       <button type="submit">Оставить заявку</button>
+    </form>
+
+    <!-- Форма без ID. Также будет работать как и с div -->
+    <!-- <form class="form" autocomplete="off">
+      <label class="form-field">
+        <input type="text" class="form-input" name="name" placeholder=" " />
+        <span class="form-label">Имя</span>
+        <span class="icon"></span>
+      </label>
+
+      <label class="form-field">
+        <input type="email" class="form-input" name="mail" placeholder=" " />
+        <span class="form-label">Почта</span>
+        <span class="icon"></span>
+      </label>
+      <button type="submit">Оставить заявку</button>
+    </form> -->
+
+    <form class="formch">
+      <ul class="formch-list">
+        <li>
+          <label class="checkbox-label">
+            <input type="checkbox" name="topic" value="html" class="checkbox" />
+            HTML
+          </label>
+        </li>
+        <li>
+          <label class="checkbox-label">
+            <input type="checkbox" name="topic" value="css" class="checkbox" />
+            CSS
+          </label>
+        </li>
+        <li>
+          <label class="checkbox-label">
+            <input type="checkbox" name="topic" value="js" class="checkbox" />
+            JavaScript
+          </label>
+        </li>
+      </ul>
+      <button type="submit" class="checkbox-button">Оставить заявку</button>
     </form>
   </body>
 </html>

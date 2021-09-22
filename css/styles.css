@@ -144,19 +144,20 @@ body {
 
 /* ----------------------------Простая таблица-------------------------- */
 
-/* Old school. Гарантированно работает во всех браузерах: */
-.form {
+/* Old school. Гарантированно работает во всех браузерах, то, что в комментариях с фокусом */
+.forma {
   padding: 20px;
   margin: 20px;
   width: 600px;
 }
 
-.form-field {
+.forma-field {
   position: relative;
+  display: block;
   margin-bottom: 20px;
 }
 
-.form-label {
+.forma-label {
   position: absolute;
   top: 50%;
   left: 40px;
@@ -167,20 +168,21 @@ body {
   transition: transform 250ms linear;
 }
 
-.form-input {
+.forma-input {
   width: 100%;
   margin: 0;
   padding: 10px 20px;
+  padding-left: 40px;
   font: inherit;
   border-radius: 3px;
   border: 1px solid blueviolet;
 }
 
-.form-input:focus + .form-label,
+/* .form-input:focus + .form-label,
 .form-input:not(:placeholder-shown) + .form-label {
   transform: translateY(-50px);
   color: blue;
-}
+} */
 
 /* .form-input:placeholder-shown {
   background-color: red;
@@ -198,8 +200,59 @@ body {
   background-color: tomato;
 }
 
-.form-input:focus ~ .icon {
+/* .form-input:focus ~ .icon {
   background-color: aqua;
+} */
+
+/* Есть такая еще штука: focus-within заменяет селекторы + и ~ */
+.forma-field:focus-within > .icon {
+  /* padding: 20px; */
+  background-color: blueviolet;
+}
+
+.forma-field:focus-within > .forma-label,
+.forma-input:not(:placeholder-shown) + .forma-label {
+  transform: translateY(-50px);
+}
+
+/* .form-input:not(:placeholder-shown) + .form-label {
+  transform: translateY(-50px);
+} */
+
+/* -----------Чекбоксы (checkboxes)------------ */
+.formch-list {
+  padding: 0;
+  margin: 0;
+  margin-left: 100px;
+  margin-bottom: 20px;
+  list-style: none;
+}
+
+.formch-list li {
+  display: flex;
+  align-items: center;
+}
+
+.formch-list label {
+  font-family: serif;
+  color: rgba(68, 2, 2, 0.781);
+}
+
+.checkbox {
+  appearance: none;
+  position: absolute;
+}
+
+.checkbox-label::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: salmon;
+}
+
+.checkbox-button {
+  margin-left: 80px;
 }
 
 /* ---------------------------Form.html, для таблицы---------------------- */
