@@ -83,3 +83,48 @@ if (salary <= 500) {
 
 /* const message = balance >= 0 ? 'Позитивный баланс' : 'Негативный баланс';
 console.log(message); */
+
+/* function makeTransaction(pricePerDroid, orderedQuantity, customerCredits) {
+  let message;
+
+  const totalPrice = pricePerDroid * orderedQuantity;
+  if (totalPrice > customerCredits) {
+    message = 'Insufficient funds!';
+  } else {
+    message = `You ordered ${orderedQuantity} droids, you have ${
+      customerCredits - totalPrice
+    } credits left`;
+  }
+
+  console.log(message);
+  return message;
+}
+
+makeTransaction(3000, 5, 23000);
+makeTransaction(1000, 3, 15000);
+makeTransaction(5000, 10, 8000);
+makeTransaction(2000, 8, 10000);
+makeTransaction(500, 10, 5000); */
+
+'Здесь несколько условий задачи';
+/* function checkStorage(available, ordered) {
+  let message;
+
+  if (ordered === 0) {
+    message = 'There are no products in the order!';
+  } else if (ordered > available) {
+    message = 'Your order is too large, there are not enough items in stock!';
+  } else {
+    message = 'The order is accepted, our manager will contact you';
+  }
+
+  console.log(message);
+  return message;
+}
+
+checkStorage(100, 50);
+checkStorage(100, 130);
+checkStorage(70, 0);
+checkStorage(200, 20);
+checkStorage(200, 250);
+checkStorage(150, 0); */
