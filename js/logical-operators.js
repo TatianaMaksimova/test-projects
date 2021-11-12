@@ -128,3 +128,82 @@ checkStorage(70, 0);
 checkStorage(200, 20);
 checkStorage(200, 250);
 checkStorage(150, 0); */
+
+'SWITCH. Область применения switch ограничена задачами с одним общим вопросом (что сравнивать) и множеством вариантов ответов (с чем сравнивать).';
+
+/* let cost;
+const subscription = 'premium';
+
+switch (subscription) {
+  case 'free':
+    cost = 0;
+    break;
+
+  case 'pro':
+    cost = 100;
+    break;
+
+  case 'premium':
+    cost = 500;
+    break;
+
+  default:
+    console.log('Invalid subscription type');
+}
+
+console.log(cost); */
+
+'Циклы. While, do...while, for, break, continue';
+
+/* // while------------
+let counter = 0;
+
+while (counter < 10) {
+  console.log('counter: ', counter);
+  counter += 1;
+}
+
+// while-------------
+let clientCounter = 18;
+const maxClients = 25;
+
+while (clientCounter < maxClients) {
+  console.log(clientCounter);
+  clientCounter += 1;
+}
+
+// do--------------------while--------------
+let password = '';
+
+do {
+  password = prompt('Введите пароль длиннее 4-х символов', '');
+} while (password.length < 5);
+
+console.log('Ввели пароль: ', password);
+
+//Посчитаем сумму чисел до определенного значения.
+const target = 3;
+let sum = 0;
+
+for (let i = 0; i <= target; i += 1) {
+  sum += i;
+}
+console.log(sum);
+
+//Вспомним про операцию a % b и выведем остаток от деления используя цикл.
+const max = 10;
+for (let i = 0; i < max; i += 1) {
+  console.log(`${max} % ${i} = `, max % i);
+}
+
+//-----------for------with-------break----------------
+for (let i = 0; i <= 5; i += 1) {
+  console.log(i);
+
+  if (i === 3) {
+    console.log('Нашли число 3, прерываем выполнение цикла');
+    break;
+  }
+}
+console.log('Лог после цикла');
+*/
