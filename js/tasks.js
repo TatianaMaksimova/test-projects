@@ -369,3 +369,82 @@ const atTheOldToad = {
 // , в свойстве potions будет массив [{ name: "Speed potion", price: 460 }, { name: "Dragon breath", price: 780 }, { name: "Invulnerability potion", price: 520 } ]
 
 // console.log(atTheOldToad.potions);
+
+// ========================================Задача: склад=================================================================
+// Напиши класс Storage, который будет создавать объекты для управления складом товаров.
+// Класс ожидает только один аргумент - начальный массив товаров, который записывается на создаваемый объект в свойство items.
+
+// Объяви следующие методы класса:
+// getItems() - возвращает массив текущих товаров в свойстве items объекта который вызывает этот метод.
+// addItem(newItem) - принимает новый товар newItem и добавляет его в массив товаров в свойстве items объекта который вызывает этот метод.
+// removeItem(itemToRemove) - принимает товар itemToRemove и удаляет его из массива товаров в свойстве items объекта который вызывает этот метод.
+
+class Storage {
+  constructor(items = []) {
+    this.items = items;
+  }
+
+  getItems() {
+    return this.items;
+  }
+
+  addItem(newItem) {
+    this.items.push(newItem);
+  }
+
+  removeItem(itemToRemove) {
+    const { items } = this;
+
+    for (let i = 0; i < items.length; i += 1) {
+      if (itemToRemove === items[i]) {
+        return items.splice(i, 1);
+      }
+    }
+  }
+}
+
+const storage = new Storage(['Nanitoids', 'Prolonger', 'Antigravitator']);
+// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+storage.addItem('Droid');
+// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+storage.removeItem('Prolonger');
+// console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+
+// ===============================Задача: конструктор строк=====================================
+// Напиши класс StringBuilder, который принимает один параметр initialValue - произвольную строку, которая записывается на создаваемый объект в свойство value.
+// Объяви следующие методы класса:
+// getValue() - возвращает текущее значение свойства value.
+// padEnd(str) - получает парметр str (строку) и добавляет её в конец значения свойства value объекта который вызывает этот метод.
+// padStart(str) - получает парметр str (строку) и добавляет её в начало значения свойства value объекта который вызывает этот метод.
+// padBoth(str) - получает парметр str (строку) и добавляет её в начало и в конец значения свойства value объекта который вызывает этот метод.
+
+class StringBuilder {
+  constructor(initialValue) {
+    this.value = initialValue;
+  }
+
+  getValue() {
+    return this.value;
+  }
+
+  padStart(str) {
+    this.value = str + this.value;
+  }
+
+  padEnd(str) {
+    this.value += str;
+  }
+
+  padBoth(str) {
+    this.value = str + this.value + str;
+  }
+}
+
+const builder = new StringBuilder('.');
+// console.log(builder.getValue()); // "."
+builder.padStart('^');
+// console.log(builder.getValue()); // "^."
+builder.padEnd('^');
+// console.log(builder.getValue()); // "^.^"
+builder.padBoth('=');
+// console.log(builder.getValue()); // "=^.^="
