@@ -91,17 +91,15 @@ const colorPickerOptions = [
 // colorPickerContainerEl.append(...elements);
 
 // ========5. Разметка=============================================================
-import products from './data/products.js';
-// console.log(products);
 
-const product = {
-  name: 'Вафли',
-  description:
-    'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi odio itaque quis qui, quia velit.',
-  price: 500,
-  available: true,
-  onSale: true,
-};
+// const product = {
+//   name: 'Вафли',
+//   description:
+//     'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi odio itaque quis qui, quia velit.',
+//   price: 500,
+//   available: true,
+//   onSale: true,
+// };
 
 // Делаем разметку:
 /* <article class="product">
@@ -110,20 +108,77 @@ const product = {
   <p class="product-price"></p>
 </article>; */
 
-const productEl = document.createElement('article');
+// const productEl = document.createElement('article');
 
-const titleEl = document.createElement('h1');
-titleEl.textContent = product.name;
-titleEl.classList.add('product-name');
+// const titleEl = document.createElement('h1');
+// titleEl.textContent = product.name;
+// titleEl.classList.add('product-name');
 
-const descriptEl = document.createElement('p');
-descriptEl.textContent = product.description;
-descriptEl.classList.add('product-description');
+// const descriptEl = document.createElement('p');
+// descriptEl.textContent = product.description;
+// descriptEl.classList.add('product-description');
 
-const priceEl = document.createElement('p');
-priceEl.textContent = `Цена: ${product.price} руб.`;
-priceEl.classList.add('product-price');
+// const priceEl = document.createElement('p');
+// priceEl.textContent = `Цена: ${product.price} руб.`;
+// priceEl.classList.add('product-price');
 
-productEl.append(titleEl, descriptEl, priceEl);
+// productEl.append(titleEl, descriptEl, priceEl);
 
 // console.log(productEl);
+
+// ======================6. Функция для создания карточки продукта==========================================
+// import products from './data/products.js';
+// console.log(products);
+
+// const productsContainerEl = document.querySelector('.js-products');
+
+// const makeProductsCard = ({ name, description, price }) => {
+//   const productEl = document.createElement('article');
+//   productEl.classList.add('product');
+
+//   const titleEl = document.createElement('h1');
+//   titleEl.textContent = name;
+//   titleEl.classList.add('product-name');
+
+//   const descriptEl = document.createElement('p');
+//   descriptEl.textContent = description;
+//   descriptEl.classList.add('product-description');
+
+//   const priceEl = document.createElement('p');
+//   priceEl.textContent = `Цена: ${price} руб.`;
+//   priceEl.classList.add('product-price');
+
+//   productEl.append(titleEl, descriptEl, priceEl);
+
+//   return productEl;
+// };
+
+// const elements = products.map(makeProductsCard);
+// console.log(elements);
+
+// productsContainerEl.append(...elements);
+
+// 7. Транзакции================================================
+import transactionHistory from './data/transactions.js';
+console.log(transactionHistory);
+
+const makeTransactionTableRowMarkup = ({ id, amount, date, business, type, name, account }) => {
+  return `
+  <tr>
+    <th>${id}</th>
+    <th>${amount}</th>
+    <th>${date}</th>
+    <th>${business}</th>
+    <th>${type}</th>
+    <th>${name}</th>
+    <th>${account}</th>
+  </tr>
+  `;
+};
+
+const tableEl = document.querySelector('.js-transaction-table');
+
+const makeTransactionTableRows = transactionHistory.map(makeTransactionTableRowMarkup).join('');
+
+tableEl.insertAdjacentHTML('beforeend', makeTransactionTableRows);
+console.log(makeTransactionTableRows);
