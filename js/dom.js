@@ -160,18 +160,18 @@ const colorPickerOptions = [
 
 // 7. Транзакции================================================
 import transactionHistory from './data/transactions.js';
-console.log(transactionHistory);
+// console.log(transactionHistory);
 
 const makeTransactionTableRowMarkup = ({ id, amount, date, business, type, name, account }) => {
   return `
   <tr>
-    <th>${id}</th>
-    <th>${amount}</th>
-    <th>${date}</th>
-    <th>${business}</th>
-    <th>${type}</th>
-    <th>${name}</th>
-    <th>${account}</th>
+    <td>${id}</td>
+    <td>${amount}</td>
+    <td>${date}</td>
+    <td>${business}</td>
+    <td>${type}</td>
+    <td>${name}</td>
+    <td>${account}</td>
   </tr>
   `;
 };
@@ -180,5 +180,5 @@ const tableEl = document.querySelector('.js-transaction-table');
 
 const makeTransactionTableRows = transactionHistory.map(makeTransactionTableRowMarkup).join('');
 
-tableEl.insertAdjacentHTML('beforeend', makeTransactionTableRows);
-console.log(makeTransactionTableRows);
+// tableEl.insertAdjacentHTML('beforeend', makeTransactionTableRows);
+// console.log(makeTransactionTableRows);
