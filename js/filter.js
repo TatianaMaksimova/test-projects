@@ -25,7 +25,7 @@ const refs = {
   input: document.querySelector('#filter'),
 };
 
-refs.input.addEventListener('input', onFilterChange);
+refs.input.addEventListener('input', _.debounce(onFilterChange, 300));
 
 const listItemsMarkup = createListItemsMarkup(tech);
 
@@ -49,3 +49,6 @@ function onFilterChange(e) {
 function populateList(markup) {
   refs.list.innerHTML = markup;
 }
+
+// иннер используем когда там изначально ничего нет, или неважно что есть, перезаписываем просто и все
+// пушистый поиск, fuse.js - когда поиск идет не от целого слова, а от сокращенных например, jvs вместо java/ja, или с ошибками пишешь, а она все равно ищет, "понимает", это библиотека.
