@@ -4,7 +4,7 @@ if ('loading' in HTMLImageElement.prototype) {
   addLazySizesScript();
 }
 
-const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+const lazyImages = document.querySelectorAll('img[data-src]');
 
 lazyImages.forEach(image => {
   image.addEventListener('load', onImageLoaded, { once: true });
@@ -13,13 +13,6 @@ lazyImages.forEach(image => {
 function onImageLoaded(e) {
   console.log('Картинка загрузилась');
   e.target.classList.add('appear');
-}
-
-function addSrcAttrToLazyImages() {
-  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-  lazyImages.forEach(img => {
-    img.src = img.dataset.src;
-  });
 }
 
 function addLazySizesScript() {
@@ -31,4 +24,11 @@ function addLazySizesScript() {
   script.referrerPolicy = 'no-referrer';
 
   document.body.appendChild(script);
+}
+
+function addSrcAttrToLazyImages() {
+  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+  lazyImages.forEach(img => {
+    img.src = img.dataset.src;
+  });
 }

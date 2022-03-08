@@ -1,7 +1,7 @@
-// const stars = 3;
-// let price;
+const stars = 3;
+let price;
 
-/* if (stars === 1) {
+if (stars === 1) {
   price = 20;
 } else if (stars === 2) {
   price = 30;
@@ -14,8 +14,7 @@
 } else {
   console.log('Такого количества звезд нет');
 }
-console.log(price);
-*/
+// console.log(price);
 
 /* switch (stars) {
   case 1:
